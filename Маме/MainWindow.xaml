@@ -1,0 +1,21 @@
+﻿<Window x:Class="Маме.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Маме"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="79*"/>
+            <ColumnDefinition Width="438*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas Background="Lavender" Grid.ColumnSpan="2">
+            <TextBlock Canvas.Left="173" Canvas.Top="93" Height="27" Width="150" RenderTransformOrigin="0.507,0.043">Выберите, что посчитать:</TextBlock>
+            <Button x:Name="average" Width="150" Height="20" Content="Средневзвешенное" IsDefault="True" Click="average_Click" Canvas.Left="173" Canvas.Top="125" />
+            <Button x:Name="pertene" Content="Пертене" IsDefault="True" Click="pertene_Click" Height="20" Canvas.Left="173" Canvas.Top="150" Width="150" />
+            <Button x:Name="history" Content="История" IsDefault="True" Click="History_OnClick" Height="20" Canvas.Left="328" Canvas.Top="125" Width="66" />
+        </Canvas>
+    </Grid>
+</Window>

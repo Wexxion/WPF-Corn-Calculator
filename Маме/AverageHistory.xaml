@@ -1,0 +1,113 @@
+﻿<Window x:Class="Маме.AverageHistory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Маме"
+        mc:Ignorable="d"
+        Title="AverageWindow" Height="370" Width="850" ResizeMode="NoResize">
+    <StackPanel Name="Test" Height="456" VerticalAlignment="Stretch" Margin="0,0,0,-5" CanVerticallyScroll="True">
+        <ItemsControl Name="Seanses" Height="300">
+            <ItemsControl.Template>
+                <ControlTemplate>
+                    <Border>
+                        <ScrollViewer
+                            VerticalScrollBarVisibility ="Visible"
+                            Padding="{TemplateBinding Control.Padding}"
+                            Focusable="False">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding 
+                                               UIElement.SnapsToDevicePixels}"/>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </ItemsControl.Template>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBox Text="{Binding Number, StringFormat=№{0}}" FontSize="20" FontWeight="Bold" TextAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+                            <TextBox Text="{Binding Date, StringFormat='{}{0:dd/MM/yyyy HH:mm}'}" FontSize="20" FontWeight="Bold"
+                                     TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="6" Grid.Column="1"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Center" >Вес</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center" >Влажность</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="2" TextAlignment="Center" >Сор</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="3" TextAlignment="Center" >Зерн</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="4" TextAlignment="Center" >Нат</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="5" TextAlignment="Center" >Кл-на</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="6" TextAlignment="Center" >Стекловидность</TextBlock>
+                            <TextBox Grid.Row="6" Grid.ColumnSpan="7" Grid.Column="0" TextAlignment="Center">Результат</TextBox>
+                            <TextBox Name="Zero" Text="{Binding Results[0], StringFormat=''}" Grid.Row="7" Grid.Column="0"/>
+                            <TextBox Name="One"  Text="{Binding Results[1], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="1"/>
+                            <TextBox Name="Two"  Text="{Binding Results[2], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="2"/>
+                            <TextBox Name="Three" Text="{Binding Results[3], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="3"/>
+                            <TextBox Name="Four" Text="{Binding Results[4], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="4"/>
+                            <TextBox Name="Five" Text="{Binding Results[5], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="5"/>
+                            <TextBox Name="Six" Text="{Binding Results[6], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="6"/>
+                            <ItemsControl ItemsSource="{Binding Parties}" Grid.Row="4" Grid.Column="0" 
+                                          Grid.ColumnSpan="7" Name="Row" Height="212">
+                                <ItemsControl.Template>
+                                    <ControlTemplate>
+                                        <Border>
+                                            <ScrollViewer
+                                                VerticalScrollBarVisibility="Auto"
+                                                Padding="{TemplateBinding Control.Padding}"
+                                                Focusable="False">
+                                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding 
+                                                   UIElement.SnapsToDevicePixels}"/>
+                                            </ScrollViewer>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ItemsControl.Template>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding Weight}"/>
+                                            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Humidity}"/>
+                                            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Littert}"/>
+                                            <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding Zern}"/>
+                                            <TextBox Grid.Row="0" Grid.Column="4" Text="{Binding Natur}"/>
+                                            <TextBox Grid.Row="0" Grid.Column="5" Text="{Binding Gluten}"/>
+                                            <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding Vitrescence}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</Window>

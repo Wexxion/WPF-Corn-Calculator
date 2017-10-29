@@ -1,0 +1,93 @@
+﻿<Window x:Class="Маме.AverageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Маме"
+        mc:Ignorable="d"
+        Title="AverageWindow" Height="480" Width="800" ResizeMode="NoResize">
+    <StackPanel Name="Test" Height="456" VerticalAlignment="Stretch" Margin="0,0,0,-5" CanVerticallyScroll="True">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center" >Вес</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center" >Влажность</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="2" TextAlignment="Center" >Сор</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="3" TextAlignment="Center" >Зерн</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="4" TextAlignment="Center" >Нат</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="5" TextAlignment="Center" >Кл-на</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="6" TextAlignment="Center" >Стекловидность</TextBlock>
+            <Button Content="+" IsDefault="True" Click="OnAddData"  Grid.Row="0" Grid.Column="8"/>
+            <Button Content="Посчитать" Click="CountUp"  Grid.Row="1" Grid.Column="8"/>
+            <TextBox Grid.Row="5" Grid.ColumnSpan="9" Grid.Column="0" TextAlignment="Center">Результат</TextBox>
+            <TextBox Name="Zero"  Grid.Row="6" Grid.Column="0"/>
+            <TextBox Name="One"  Grid.Row="6" Grid.Column="1"/>
+            <TextBox Name="Two"  Grid.Row="6" Grid.Column="2"/>
+            <TextBox Name="Three" Grid.Row="6" Grid.Column="3"/>
+            <TextBox Name="Four" Grid.Row="6" Grid.Column="4"/>
+            <TextBox Name="Five" Grid.Row="6" Grid.Column="5"/>
+            <TextBox Name="Six" Grid.Row="6" Grid.Column="6"/>
+            <ItemsControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="9" Name="Row" Height="212" Margin="0,0,69,0">
+                <ItemsControl.Template>
+                    <ControlTemplate>
+                        <Border>
+                            <ScrollViewer
+                        Padding="{TemplateBinding Control.Padding}"
+                        Focusable="False">
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding 
+                                               UIElement.SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding Weight}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Humidity}"/>
+                            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Littert}"/>
+                            <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding Zern}"/>
+                            <TextBox Grid.Row="0" Grid.Column="4" Text="{Binding Natur}"/>
+                            <TextBox Grid.Row="0" Grid.Column="5" Text="{Binding Gluten}"/>
+                            <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding Vitrescence}"/>
+                            <Button Grid.Row="0" Grid.Column="7" Click="OnDeleteData">X</Button>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </StackPanel>
+</Window>
