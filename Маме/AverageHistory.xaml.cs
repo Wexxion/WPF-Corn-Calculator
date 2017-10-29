@@ -2,10 +2,11 @@
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Windows;
+using Маме.Domain;
 
 namespace Маме
 {
-    public partial class AverageHistory : Window
+    public partial class AverageHistory
     {
         public AverageHistory(Window main)
         {
@@ -17,11 +18,11 @@ namespace Маме
 
         public void LoadData()
         {
-            var jsonFormatter = new DataContractJsonSerializer(typeof(List<Seans>));
+            var jsonFormatter = new DataContractJsonSerializer(typeof(List<Session>));
             using (var fs = new FileStream("Average.json", FileMode.Open))
             {
-                var deserilizeSeans = (List<Seans>) jsonFormatter.ReadObject(fs);
-                Seanses.ItemsSource = new List<Seans>(deserilizeSeans);
+                var deserilizeSeans = (List<Session>) jsonFormatter.ReadObject(fs);
+                Seanses.ItemsSource = new List<Session>(deserilizeSeans);
                 for (var i = 1; i <= deserilizeSeans.Count; i++)
                     deserilizeSeans[i - 1].Number = i;
             }
