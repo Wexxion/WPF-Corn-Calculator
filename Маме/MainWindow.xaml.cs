@@ -26,5 +26,17 @@ namespace Маме
             var perteneWindow = new AverageHistory(this);
             perteneWindow.Show();
         }
+
+        private void Task1_History_OnClick(object sender, RoutedEventArgs e)
+        {
+            var taskWindow = new Task1History(this);
+            taskWindow.Show();
+        }
+
+        private void Task2_History_OnClick(object sender, RoutedEventArgs e)
+        {
+            var taskWindow = new Task2History(this);
+            taskWindow.Show();
+        }
     }
 }

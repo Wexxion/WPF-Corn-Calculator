@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Маме"
         mc:Ignorable="d"
         Title="PerteneWindow" Height="376.154" Width="506.923">
-    <StackPanel Name="Test" Height="456" VerticalAlignment="Stretch" Margin="0,0,0,-5" CanVerticallyScroll="True">
+    <StackPanel Name="Test" VerticalAlignment="Stretch" Margin="0,0,0,-2.333" CanVerticallyScroll="True">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -34,7 +34,9 @@
             <Button Content="+" IsDefault="True" Click="OnAddData"  Grid.Row="0" Grid.Column="3"/>
             <Button Content="Посчитать" Click="CountUp"  Grid.Row="1" Grid.Column="3"/>
             <TextBox Grid.Row="5" Grid.Column="0" TextAlignment="Center" Grid.ColumnSpan="3" Margin="0,0,55,0">Результат</TextBox>
+            <TextBox Grid.Row="6" Grid.Column="0" TextAlignment="Center" Grid.ColumnSpan="3" Margin="0,18,55,-18">Общий вес</TextBox>
             <TextBox Name="Zero"  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,55,0"/>
+            <TextBox Name="SumWeigth"  Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Margin="39.667,18,26,-18" RenderTransformOrigin="1.175,0.889"/>
             <TextBlock Grid.Row="0" Grid.Column="4" TextAlignment="Center" >ЧП</TextBlock>
             <TextBlock Grid.Row="3" Grid.Column="3" TextAlignment="Center" Grid.ColumnSpan="3" Margin="47,208,31.333,0" Grid.RowSpan="2" >Требуемое ЧП</TextBlock>
 

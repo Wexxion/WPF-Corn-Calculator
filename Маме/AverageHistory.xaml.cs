@@ -8,24 +8,14 @@ namespace Маме
 {
     public partial class AverageHistory
     {
+        private DataBase<AverageSession> db = new DataBase<AverageSession>("Average.json");
         public AverageHistory(Window main)
         {
             InitializeComponent();
-
-            LoadData();
+            var items = db.LoadData();
+            Seanses.ItemsSource = items;
             Closing += (sender, args) => main.Show();
         }
 
-        public void LoadData()
-        {
-            var jsonFormatter = new DataContractJsonSerializer(typeof(List<Session>));
-            using (var fs = new FileStream("Average.json", FileMode.Open))
-            {
-                var deserilizeSeans = (List<Session>) jsonFormatter.ReadObject(fs);
-                Seanses.ItemsSource = new List<Session>(deserilizeSeans);
-                for (var i = 1; i <= deserilizeSeans.Count; i++)
-                    deserilizeSeans[i - 1].Number = i;
-            }
-        }
     }
 }

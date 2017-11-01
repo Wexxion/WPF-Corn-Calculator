@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Windows;
 using Маме.Domain;
 
@@ -30,11 +31,16 @@ namespace Маме
         private void OnDeleteCp(object sender, RoutedEventArgs e) =>
             CPData.Remove(((FrameworkElement)sender).DataContext as CP);
 
-        private void CountUp(object sender, RoutedEventArgs e) 
-            => Zero.Text = Calculator.CalculatePertene(RowData);
+        private void CountUp(object sender, RoutedEventArgs e)
+        {
+            var res = PerteneData.CalculatePertene(RowData);
+            Zero.Text = res.res;
+            SumWeigth.Text = res.sum.ToString(CultureInfo.InvariantCulture);
+        }
 
         public void CountUpCP(object sender, RoutedEventArgs e) 
-            => (resultA.Text, resultB.Text) = Calculator.CalculateCP(CPData, Required.Text);
+            => (resultA.Text, resultB.Text) = Domain.CP.CalculateCP(CPData, Required.Text);
+
     }
 
 
