@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Маме"
         mc:Ignorable="d"
-        Title="AverageWindow" Height="370" Width="850" ResizeMode="NoResize">
-    <StackPanel Name="Test" Height="456" VerticalAlignment="Stretch" Margin="0,0,0,-5" CanVerticallyScroll="True">
-        <ItemsControl Name="Seanses" Height="300">
+        Title="AverageWindow" Height="405" Width="800" ResizeMode="NoResize">
+    <StackPanel Name="Test" VerticalAlignment="Stretch" CanVerticallyScroll="True">
+        <ItemsControl Name="Seanses" Height="365">
             <ItemsControl.Template>
                 <ControlTemplate>
                     <Border>
@@ -24,7 +24,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="2">
-                        <Grid>
+                        <Grid MinHeight="360">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -35,9 +35,6 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -54,16 +51,16 @@
                             <TextBlock Grid.Row="1" Grid.Column="4" TextAlignment="Center" >Нат</TextBlock>
                             <TextBlock Grid.Row="1" Grid.Column="5" TextAlignment="Center" >Кл-на</TextBlock>
                             <TextBlock Grid.Row="1" Grid.Column="6" TextAlignment="Center" >Стекловидность</TextBlock>
-                            <TextBox Grid.Row="6" Grid.ColumnSpan="7" Grid.Column="0" TextAlignment="Center">Результат</TextBox>
-                            <TextBox Name="Zero" Text="{Binding Results[0], StringFormat=''}" Grid.Row="7" Grid.Column="0"/>
-                            <TextBox Name="One"  Text="{Binding Results[1], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="1"/>
-                            <TextBox Name="Two"  Text="{Binding Results[2], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="2"/>
-                            <TextBox Name="Three" Text="{Binding Results[3], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="3"/>
-                            <TextBox Name="Four" Text="{Binding Results[4], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="4"/>
-                            <TextBox Name="Five" Text="{Binding Results[5], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="5"/>
-                            <TextBox Name="Six" Text="{Binding Results[6], StringFormat='0.00000'}" Grid.Row="7" Grid.Column="6"/>
-                            <ItemsControl ItemsSource="{Binding Parties}" Grid.Row="4" Grid.Column="0" 
-                                          Grid.ColumnSpan="7" Name="Row" Height="212">
+                            <TextBox Grid.Row="3" Grid.ColumnSpan="7" Grid.Column="0" TextAlignment="Center">Результат</TextBox>
+                            <TextBox Name="Zero" Text="{Binding Results[0], StringFormat=''}" Grid.Row="4" Grid.Column="0"/>
+                            <TextBox Name="One"  Text="{Binding Results[1], StringFormat='0.0000'}" Grid.Row="4" Grid.Column="1"/>
+                            <TextBox Name="Two"  Text="{Binding Results[2], StringFormat='0.0000'}" Grid.Row="4" Grid.Column="2"/>
+                            <TextBox Name="Three" Text="{Binding Results[3], StringFormat='0.0000'}" Grid.Row="4" Grid.Column="3"/>
+                            <TextBox Name="Four" Text="{Binding Results[4], StringFormat='0.0000'}" Grid.Row="4" Grid.Column="4"/>
+                            <TextBox Name="Five" Text="{Binding Results[5], StringFormat='0.0000'}" Grid.Row="4" Grid.Column="5"/>
+                            <TextBox Name="Six" Text="{Binding Results[6], StringFormat='0.0000'}" Grid.Row="4" Grid.Column="6"/>
+                            <ItemsControl ItemsSource="{Binding Parties}" Grid.Row="2" Grid.Column="0" 
+                                          Grid.ColumnSpan="7" Name="Row" Height="265">
                                 <ItemsControl.Template>
                                     <ControlTemplate>
                                         <Border>

@@ -25,7 +25,7 @@ namespace Маме
         {
             InitializeComponent();
             var items = db.LoadData();
-            Seanses.ItemsSource = items;
+            //Seanses.ItemsSource = items;
             Closing += (sender, args) => main.Show();
         }
     }

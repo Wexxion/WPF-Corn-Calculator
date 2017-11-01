@@ -1,27 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
-using Маме.Domain;
 
-namespace Маме
+namespace Маме.Domain
 {
-    class DataBase<T>
+    internal class DataBase<T>
     {
-        private string fileName;
-        public DataBase(string fName) => fileName = fName;
+        private readonly string fileName;
+
+        public DataBase(string fName)
+        {
+            fileName = fName;
+        }
+
         public List<T> LoadData()
         {
             var jsonFormatter = new DataContractJsonSerializer(typeof(List<T>));
-            using (var fs = new FileStream(fileName, FileMode.Open))
+            var res = new List<T>();
+            try
             {
-                var deserilizeSeans = (List<T>)jsonFormatter.ReadObject(fs);
-                return new List<T>(deserilizeSeans);
+                using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
+                {
+                    var deserilizeSeans = (List<T>) jsonFormatter.ReadObject(fs);
+                    res = new List<T>(deserilizeSeans);
+                }
             }
+            catch (Exception) {}
+            return res;
         }
+
         public void SaveData(T obj)
         {
             var jsonFormatter = new DataContractJsonSerializer(typeof(List<T>));
@@ -29,18 +37,12 @@ namespace Маме
             try
             {
                 using (var fs = new FileStream(fileName, FileMode.Open))
-                {
-                    list = (List<T>)jsonFormatter.ReadObject(fs);
-                }
+                    list = (List<T>) jsonFormatter.ReadObject(fs);
             }
-            catch (FileNotFoundException)
-            {
-            }
+            catch (Exception) {}
             list.Add(obj);
             using (var fs = new FileStream(fileName, FileMode.Create))
-            {
                 jsonFormatter.WriteObject(fs, list);
-            }
         }
     }
 }

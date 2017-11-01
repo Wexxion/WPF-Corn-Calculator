@@ -28,7 +28,7 @@ namespace Маме.Domain
             var sum = rowData.Sum(row => row.cpX * row.Percentage / 100);
             
             var result = (6000 + sum * 50) / sum;
-            toSave.result = result;
+            toSave.Result = result;
             toSave.Sum = sum;
             toSave.Save();
             return (result.ToString(CultureInfo.InvariantCulture), sum);

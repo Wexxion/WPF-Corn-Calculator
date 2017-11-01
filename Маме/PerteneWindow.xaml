@@ -45,6 +45,7 @@
             <TextBlock Grid.Row="3" Grid.Column="5" TextAlignment="Center" Grid.ColumnSpan="3" Margin="33.667,0,37.667,192">Результат</TextBlock>
             <TextBlock Grid.Row="3" Grid.Column="6" TextAlignment="Center" Name="resultA" Grid.ColumnSpan="2" Margin="10.667,26,13.667,170"></TextBlock>
             <TextBlock Grid.Row="3" Grid.Column="6" TextAlignment="Center" Name="resultB" Grid.ColumnSpan="2" Margin="10.667,58,13.667,136" RenderTransformOrigin="0.536,-1.222"></TextBlock>
+            
             <ItemsControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Name="Row" Height="212" Margin="0,0,-30,0">
                 <ItemsControl.Template>
                     <ControlTemplate>

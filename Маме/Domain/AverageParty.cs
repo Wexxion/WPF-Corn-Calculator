@@ -38,7 +38,7 @@ namespace Маме.Domain
             for (var i = 1; i < 7; i++)
             {
                 var res = allValues.Sum(row => row[0] * row[i]) / sum;
-                conformity.Add(res.ToString(CultureInfo.InvariantCulture));
+                conformity.Add(res.ToString("0.0000"));
                 toSave.Results.Add(res);
             }
 
