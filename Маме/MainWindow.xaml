@@ -5,19 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Маме"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Калькулятор" Height="360" Width="535" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="79*"/>
             <ColumnDefinition Width="438*"/>
         </Grid.ColumnDefinitions>
         <Canvas Background="Lavender" Grid.ColumnSpan="2">
-            <TextBlock Canvas.Left="173" Canvas.Top="93" Height="27" Width="150" RenderTransformOrigin="0.507,0.043">Выберите, что посчитать:</TextBlock>
+            <TextBlock Canvas.Left="173" Canvas.Top="105" Height="20" Width="150" TextAlignment="Center" RenderTransformOrigin="0.507,0.043" Text="Выберите, что посчитать:"/>
             <Button x:Name="average" Width="150" Height="20" Content="Средневзвешенное" IsDefault="True" Click="average_Click" Canvas.Left="173" Canvas.Top="125" />
             <Button x:Name="pertene" Content="Пертене" IsDefault="True" Click="pertene_Click" Height="20" Canvas.Left="173" Canvas.Top="150" Width="150" />
-            <Button x:Name="history" Content="История" IsDefault="True" Click="History_OnClick" Height="20" Canvas.Left="328" Canvas.Top="125" Width="66" />
-            <Button x:Name="task1_history" Content="Задача 1 история" IsDefault="True" Click="Task1_History_OnClick" Height="20" Canvas.Left="123" Canvas.Top="175" Width="113" />
-            <Button x:Name="task2_history" Content="Задача 2 история" IsDefault="True" Click="Task2_History_OnClick" Height="20" Canvas.Left="261" Canvas.Top="175" Width="113" />
+            <Button x:Name="history" Content="История" IsDefault="True" Click="History_OnClick" Height="20" Canvas.Left="362" Canvas.Top="125" Width="66" />
+            <Button x:Name="task1_history" Content="История Пертене" IsDefault="True" Click="Task1_History_OnClick" Height="20" Canvas.Left="95" Canvas.Top="202" Width="120" />
+            <Button x:Name="task2_history" Content="История ЧП" IsDefault="True" Click="Task2_History_OnClick" Height="20" Canvas.Left="293" Canvas.Top="202" Width="120" />
+            <TextBlock Canvas.Left="314" Canvas.Top="305">♥ Для мамы старались Сава и Таня ♥</TextBlock>
+            <TextBlock Canvas.Left="301" Canvas.Top="168" FontSize="24" RenderTransformOrigin="-0.085,0.427">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform X="0.294" Y="5.371"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>↓</TextBlock>
+            <TextBlock Canvas.Left="185" Canvas.Top="168" FontSize="24" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>↓</TextBlock>
+            <TextBlock Canvas.Left="336" Canvas.Top="121" FontSize="24" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>↓</TextBlock>
         </Canvas>
     </Grid>
 </Window>

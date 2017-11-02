@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Маме"
         mc:Ignorable="d"
-        Title="PerteneWindow" Height="376.154" Width="506.923">
+        Title="Пертене" Height="376.154" Width="506.923">
     <StackPanel Name="Test" VerticalAlignment="Stretch" Margin="0,0,0,-2.333" CanVerticallyScroll="True">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -28,24 +28,25 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBox Name="Required"  Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" Margin="47,0,41.333,0"/>
-            <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center" >Вес</TextBlock>
-            <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center" >ЧП</TextBlock>
-            <Button Content="+" IsDefault="True" Click="OnAddData"  Grid.Row="0" Grid.Column="3"/>
-            <Button Content="Посчитать" Click="CountUp"  Grid.Row="1" Grid.Column="3"/>
-            <TextBox Grid.Row="5" Grid.Column="0" TextAlignment="Center" Grid.ColumnSpan="3" Margin="0,0,55,0">Результат</TextBox>
-            <TextBox Grid.Row="6" Grid.Column="0" TextAlignment="Center" Grid.ColumnSpan="3" Margin="0,18,55,-18">Общий вес</TextBox>
-            <TextBox Name="Zero"  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,55,0"/>
-            <TextBox Name="SumWeigth"  Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Margin="39.667,18,26,-18" RenderTransformOrigin="1.175,0.889"/>
-            <TextBlock Grid.Row="0" Grid.Column="4" TextAlignment="Center" >ЧП</TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="3" TextAlignment="Center" Grid.ColumnSpan="3" Margin="47,208,31.333,0" Grid.RowSpan="2" >Требуемое ЧП</TextBlock>
-
-            <Button Content="+" IsDefault="True" Click="OnAddCp"  Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="3" Height="20" Margin="55.667,0" VerticalAlignment="Top"/>
-            <Button Grid.Row="1" Grid.Column="6" Click="CountUpCP" Grid.ColumnSpan="2" Margin="0.667,0,55.667,0">Посчитать</Button>
-            <TextBlock Grid.Row="3" Grid.Column="5" TextAlignment="Center" Grid.ColumnSpan="3" Margin="33.667,0,37.667,192">Результат</TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="6" TextAlignment="Center" Name="resultA" Grid.ColumnSpan="2" Margin="10.667,26,13.667,170"></TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="6" TextAlignment="Center" Name="resultB" Grid.ColumnSpan="2" Margin="10.667,58,13.667,136" RenderTransformOrigin="0.536,-1.222"></TextBlock>
+            <Border Grid.Column="4" Grid.RowSpan="7" BorderBrush="Black" 
+                    BorderThickness="3,0,0,0"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Center" >Вес</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center" >ЧП</TextBlock>
+            <Button Content="+" IsDefault="True" Click="OnAddData"  Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"/>
+            <Button Content="Посчитать" Click="CountUp"  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
+            <TextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextAlignment="Center" >Результат</TextBox>
+            <TextBox Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" TextAlignment="Center">Общий вес</TextBox>
+            <TextBox Name="Zero"  Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" TextAlignment="Center" Margin="0.333,0,26,0"/>
+            <TextBox Name="SumWeigth"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" TextAlignment="Center" Margin="0.333,0,26,0"/>
             
+            <TextBlock Grid.Row="5" Grid.Column="4" TextAlignment="Center" Grid.ColumnSpan="3" >Требуемое ЧП</TextBlock>
+            <TextBox Name="Required" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="4" TextAlignment="Center" Margin="3,0,55.667,0"/>
+            <Button Content="+" IsDefault="True" Click="OnAddCp"  Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" Height="20"/>
+            <Button Grid.Row="1" Grid.Column="6" Click="CountUpCP" Grid.ColumnSpan="2">Посчитать</Button>
+            <TextBlock Grid.Row="3" Grid.Column="4" TextAlignment="Center" >ЧП</TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" TextAlignment="Center" >Удалить</TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="7" TextAlignment="Center">Результат</TextBlock>
+
             <ItemsControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Name="Row" Height="212" Margin="0,0,-30,0">
                 <ItemsControl.Template>
                     <ControlTemplate>
@@ -71,15 +72,14 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-
-                            <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding Weight}"/>
-                            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding cP}"/>
+                            <TextBox Grid.Row="0" Grid.Column="0" TextAlignment="Center" Text="{Binding Weight, StringFormat='0.0000'}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" TextAlignment="Center" Text="{Binding cP, StringFormat='0.0000'}"/>
                             <Button Grid.Row="0" Grid.Column="2" Click="OnDeleteData">X</Button>
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-            <ItemsControl Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="5" Name="CP" Margin="0,26,34,19">
+            <ItemsControl Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="5" Name="CP" Margin="3,26,34,19">
                 <ItemsControl.Template>
                     <ControlTemplate>
                         <Border>
@@ -99,14 +99,10 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
-                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding Path=cP}"/>
+                            <TextBox Grid.Row="0" Grid.Column="0" TextAlignment="Center" Text="{Binding Path=cP}"/>
                             <Button Grid.Row="0" Grid.Column="1" Click="OnDeleteCp">X</Button>
+                            <TextBlock Name="ResultBox" Grid.Row="0" Grid.Column="2" Text="{Binding Path=Result}" TextAlignment="Center"></TextBlock>
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

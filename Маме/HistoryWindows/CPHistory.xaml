@@ -1,0 +1,83 @@
+﻿<Window x:Class="Маме.Task2History"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="История ЧП" Height="340" Width="380" ResizeMode="NoResize">
+    <StackPanel Name="Test" VerticalAlignment="Stretch">
+        <ItemsControl Name="Sessions" Height="300">
+            <ItemsControl.Template>
+                <ControlTemplate>
+                    <Border>
+                        <ScrollViewer
+                            VerticalScrollBarVisibility="Visible"
+                            Padding="{TemplateBinding Control.Padding}"
+                            Focusable="False">
+                            <ItemsPresenter
+                                SnapsToDevicePixels="{TemplateBinding 
+                                               UIElement.SnapsToDevicePixels}" />
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </ItemsControl.Template>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid MinHeight="285">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBox Text="{Binding Number, StringFormat=№{0}}" FontSize="20" FontWeight="Bold" TextAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+                            <TextBox Text="{Binding Date, StringFormat='{}{0:dd/MM/yyyy HH:mm}'}" FontSize="18" FontWeight="Bold"
+                         TextAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Center" >ЧП</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center">Результат</TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="0" TextAlignment="Center" Grid.ColumnSpan="2" >Требуемое ЧП</TextBlock>
+                            <TextBox Text="{Binding Path=RequiredCp}"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextAlignment="Center" />
+
+                            <ItemsControl ItemsSource="{Binding Parties}" Grid.Row="2" Grid.Column="0"
+                                          Grid.ColumnSpan="2" Height="190">
+                                <ItemsControl.Template>
+                                    <ControlTemplate>
+                                        <Border>
+                                            <ScrollViewer
+                                                Padding="{TemplateBinding Control.Padding}"
+                                                Focusable="False"
+                                                VerticalScrollBarVisibility="Auto">  
+                                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding 
+                                                   UIElement.SnapsToDevicePixels}"/>
+                                            </ScrollViewer>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ItemsControl.Template>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox Grid.Row="0" Grid.Column="0" TextAlignment="Center"
+                                                     Text="{Binding Path=cP}"/>
+                                            <TextBlock Name="ResultBox" Grid.Row="0" Grid.Column="1" 
+                                                     Text="{Binding Path=Result, StringFormat='0.0000'}" TextAlignment="Center"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</Window>

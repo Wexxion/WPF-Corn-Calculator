@@ -15,17 +15,14 @@ using Маме.Domain;
 
 namespace Маме
 {
-    /// <summary>
-    /// Логика взаимодействия для Task2History.xaml
-    /// </summary>
-    public partial class Task2History : Window
+    public partial class Task1History
     {
-        private DataBase<CPSession> db = new DataBase<CPSession>("CPData.json");
-        public Task2History(Window main)
+        private DataBase<PerteneSession> db = new DataBase<PerteneSession>("PerteneData.json");
+        public Task1History(Window main)
         {
             InitializeComponent();
             var items = db.LoadData();
-            //Seanses.ItemsSource = items;
+            Sessions.ItemsSource = items;
             Closing += (sender, args) => main.Show();
         }
     }

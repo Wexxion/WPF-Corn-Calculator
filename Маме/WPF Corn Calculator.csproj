@@ -59,23 +59,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Domain\CPData.cs" />
     <Compile Include="Domain\CPSession.cs" />
     <Compile Include="Domain\DataBase.cs" />
     <Compile Include="Domain\ISession.cs" />
     <Compile Include="Domain\AverageParty.cs" />
     <Compile Include="Domain\PerteneData.cs" />
     <Compile Include="Domain\AverageSession.cs" />
-    <Compile Include="Task1History.xaml.cs">
-      <DependentUpon>Task1History.xaml</DependentUpon>
+    <Compile Include="HistoryWindows\PerteneHistory.xaml.cs">
+      <DependentUpon>PerteneHistory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Task2History.xaml.cs">
-      <DependentUpon>Task2History.xaml</DependentUpon>
+    <Compile Include="HistoryWindows\CPHistory.xaml.cs">
+      <DependentUpon>CPHistory.xaml</DependentUpon>
     </Compile>
-    <Page Include="AverageHistory.xaml">
+    <Page Include="HistoryWindows\AverageHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AverageWindow.xaml">
+    <Page Include="Windows\AverageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -87,10 +88,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AverageHistory.xaml.cs">
+    <Compile Include="HistoryWindows\AverageHistory.xaml.cs">
       <DependentUpon>AverageHistory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AverageWindow.xaml.cs">
+    <Compile Include="Windows\AverageWindow.xaml.cs">
       <DependentUpon>AverageWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\PerteneSession.cs" />
@@ -98,21 +99,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PerteneWindow.xaml">
+    <Page Include="Windows\PerteneWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Task1History.xaml">
+    <Page Include="HistoryWindows\PerteneHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Task2History.xaml">
+    <Page Include="HistoryWindows\CPHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PerteneWindow.xaml.cs">
+    <Compile Include="Windows\PerteneWindow.xaml.cs">
       <DependentUpon>PerteneWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">

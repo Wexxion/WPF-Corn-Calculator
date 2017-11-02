@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Маме.Domain
 {
+    [Serializable]
     class CPSession :ISession
     {
 
-        public List<CP> Parties { get; set; }
+        public List<CPData> Parties { get; set; }
         public double RequiredCp { get; set; }
-        public List<double> Results { get; set; } = new List<double>();
+        public List<double> Results { get; set; }
         public DateTime Date { get; set; }
         public void Save()
         {

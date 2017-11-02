@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Маме.Domain
 {
+    [Serializable]
     class PerteneSession: ISession
     {
-        public List<PerteneData> data { get; set; }
+        public List<PerteneData> Data { get; set; }
         public double Result { get; set; }
         public DateTime Date { get; set; }
         public double Sum { get; set; }

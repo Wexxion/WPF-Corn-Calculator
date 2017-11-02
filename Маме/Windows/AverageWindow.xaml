@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Маме"
         mc:Ignorable="d"
-        Title="AverageWindow" Height="480" Width="800" ResizeMode="NoResize">
+        Title="Средневзвешенное" Height="360" Width="800" ResizeMode="NoResize">
     <StackPanel Name="Test" Height="456" VerticalAlignment="Stretch" Margin="0,0,0,-5" CanVerticallyScroll="True">
         <Grid>
             <Grid.ColumnDefinitions>
